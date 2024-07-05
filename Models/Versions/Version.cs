@@ -37,19 +37,19 @@ namespace VersionControl.Models.Versions
         /// <summary>
         /// First digit in the sequence (x.0.0.0)
         /// </summary>
-        public byte Major;
+        public byte Major { get; protected set; }
         /// <summary>
         /// Second digit in the sequence (0.x.0.0)
         /// </summary>
-        public byte Minor;
+        public byte Minor { get; protected set; }
         /// <summary>
         /// Third digit in the sequence (0.0.x.0)
         /// </summary>
-        public byte Patch;
+        public byte Patch { get; protected set; }
         /// <summary>
         /// Fourth digit in the sequence (0.0.0.x)
         /// </summary>
-        public byte Revision;
+        public byte Revision { get; protected set; }
 
         /// <summary>
         /// Version as string. It's a shortcut for ToString(), both parameter and function return the same value
