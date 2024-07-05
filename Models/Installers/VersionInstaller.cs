@@ -38,7 +38,7 @@ namespace VersionControl.Models.Installers
         public void Install()
         {
             var updFileName = Parameters.UpdateFileName;
-            var updFilePath = Parameters.UpdateFilePath
+            var updFilePath = Parameters.UpdateFilePath;
             if (updFileName == null || updFileName == string.Empty || updFilePath == null || updFilePath == string.Empty)
                 throw new ArgumentNullException();
 
