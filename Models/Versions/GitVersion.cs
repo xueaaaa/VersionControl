@@ -30,6 +30,13 @@ namespace VersionControl.Models.Versions
         /// </summary>
         public bool IsPrerelease { get; private set; }
 
+        /// <summary>
+        /// When an instance of a class is created, it is automatically populated with data from the latest release 
+        /// of the specified repository with the specified owner
+        /// </summary>
+        /// <exception cref="NotConnectedToInternetException">Thrown if there is no internet connection</exception>
+        /// <exception cref="ArgumentNullException">Thrown if no repository name or owner is specified</exception>
+        /// <exception cref="NotAVersionException">Thrown if no version is specified in the release tag or if the version is not in 0.0.0.0 format</exception>
         public GitVersion() 
         {
             var connected = InternetChecker.Check();
@@ -44,7 +51,7 @@ namespace VersionControl.Models.Versions
             var gitClient = new GitHubClient(new ProductHeaderValue(repoName));
             var latestRelease = gitClient.Repository.Release.GetLatest(repoOwner, repoName).Result;
 
-            var stringVersion = latestRelease.Name;
+            var stringVersion = latestRelease.TagName;
             var versionParts = stringVersion.Split('.');
             if (versionParts.Length != 4) 
                 throw new NotAVersionException();
