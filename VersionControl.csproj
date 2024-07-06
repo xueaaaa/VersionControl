@@ -4,10 +4,20 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <Title>VersionControl</Title>
+    <Authors>xueaaaa</Authors>
+    <Company>xueaaaa</Company>
+    <Description>Library for automatic update of C# programs using GitHub</Description>
+    <RepositoryUrl>https://github.com/xueaaaa/VersionControl</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/xueaaaa/VersionControl</PackageProjectUrl>
+    <PackageTags>version control, C#, app version control</PackageTags>
+    <PackageId>xueaaaa.VersionControl</PackageId>
+    <Version>1.0.1</Version>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Octokit" Version="13.0.1" />
+    <PackageReference Include="Octokit" Version="9.1.2" />
   </ItemGroup>
 
 </Project>
