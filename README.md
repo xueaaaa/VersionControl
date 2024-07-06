@@ -33,11 +33,11 @@ using VersionControl.Models.Versions;
 var local = Version.Local;
 ```
 
-To get the latest version of the app on GitHub you just need to initialize the class. You cannot get a non-latest version from GitHub.
+To get the latest version of the app on GitHub you just need to use static method Create(). You cannot get a non-latest version from GitHub.
 ```csharp
 using VersionControl.Models.Versions;
 
-var gitVersion = new GitVersion();
+var gitVersion = await GitVersion.Create();
 ```
 
 To install the latest version, use the VersionInstaller class, for example, as shown in the following code snippet. It is recommended to check if it is really required before installing.
@@ -46,7 +46,7 @@ using VersionControl.Models.Installers;
 using VersionControl.Models.Versions;
 
 var local = Version.Local;
-var gitVersion = new GitVersion();
+var gitVersion = await GitVersion.Create();
 var installer = new VersionInstaller(local, gitVersion);
 
 if (installer.Check())
