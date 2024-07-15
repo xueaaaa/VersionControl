@@ -7,15 +7,16 @@ namespace VersionControl.Models.Installers
 {
     public class VersionInstaller
     {
-        private WebClient _webClient;
         private Version _local;
         private GitVersion _current;
+
+        public WebClient WebClient { get; private set; }
 
         public VersionInstaller(Version local, GitVersion git)
         {
             _local = local;
             _current = git;
-            _webClient = new();
+            WebClient = new();
         }
 
         /// <summary>
@@ -42,7 +43,7 @@ namespace VersionControl.Models.Installers
             if (updFileName == null || updFileName == string.Empty || updFilePath == null || updFilePath == string.Empty)
                 throw new ArgumentNullException();
 
-            _webClient.DownloadFileAsync(new Uri(_current.Assets
+            WebClient.DownloadFileAsync(new Uri(_current.Assets
                 .Where(v => v.Name == updFileName)
                 .First()
                 .BrowserDownloadUrl), updFilePath);

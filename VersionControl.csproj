@@ -13,7 +13,8 @@
     <PackageProjectUrl>https://github.com/xueaaaa/VersionControl</PackageProjectUrl>
     <PackageTags>version control, C#, app version control</PackageTags>
     <PackageId>xueaaaa.VersionControl</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.1.1</Version>
+    <PackageReleaseNotes>Makes the WebClient used for uploading to VersionInstaller publicly available for retrieval</PackageReleaseNotes>
   </PropertyGroup>
 
   <ItemGroup>
